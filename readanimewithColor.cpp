@@ -5,7 +5,7 @@
 #include<term.h>
 #include<curses.h>
 
-
+//clean the screen
 void ClearScreen()
 {
     if(!cur_term)
