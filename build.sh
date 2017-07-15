@@ -2,4 +2,4 @@
 if [ ! -d ../install ] ; then
    mkdir ../install
 fi
-g++ -std=c++14 -g -o ../install/readanimeWithColor readanimewithColor.cpp -lncurses -ltinfo
+g++ -std=c++14 -g -o ../install/readanimeWithColor readanimewithColor.cpp -lncurses 

@@ -28,8 +28,11 @@ int main (int narg, char ** args){
     std::string filename = args[1];
     std::string colorfilename = args[2];
     bool if_auto = false;
+    bool if_a = false;
     if (narg>3)
         if_auto = std::string(args[3])=="auto" ? true: false;
+    if (narg>4)
+        if_a = std::string(args[4])=="-a"? true:false; 
     std::ifstream file(filename);
     std::ifstream colorfile(colorfilename);
     colorfile.seekg(0);
@@ -49,7 +52,10 @@ int main (int narg, char ** args){
             static std::string linecolor(line.size(),'0');
             colorfile.read(&linecolor[0], line.size());
             for(unsigned int i =0; i< line.size(); i++){
-                printwithcolor(line[i],linecolor[i]);
+                if(if_a)
+                  printwithcolor('@',linecolor[i]);
+                else
+                  printwithcolor(line[i],linecolor[i]);
             }
             //clear the color
             std::cout<<"\e[0m"<<std::endl;
